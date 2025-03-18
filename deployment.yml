@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: bms-app
+  namespace: bms
   labels:
     app: bms
 spec:
@@ -15,7 +16,22 @@ spec:
         app: bms
     spec:
       containers:
-      - name: bms-container
-        image: kastrov/bms:latest  # Replace with your Docker image
+      - name: bms-ctr
+        image: neeraj2806/bms:latest  # Replace with your Docker image
+        imagePullPolicy: Always
         ports:
         - containerPort: 3000  # Replace with the port your app runs on
+--- 
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: bms-service
+  namespace: bms   # Must match the namespace of the Deployment
+spec:
+  selector:
+    app: bms
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
