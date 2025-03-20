@@ -119,16 +119,16 @@ metadata:
 rules:
   - apiGroups: [""]
     resources: ["pods", "services", "configmaps", "secrets"]
-    verbs: ["get", "list", "watch", "create", "delete", "update"]
+    verbs: ["get", "list", "watch", "create", "delete", "update", "patch"]
   - apiGroups: ["apps"]
     resources: ["deployments", "daemonsets", "replicasets", "statefulsets"]
-    verbs: ["get", "list", "watch", "create", "delete", "update"]
+    verbs: ["get", "list", "watch", "create", "delete", "update", "patch"]
   - apiGroups: ["batch"]
     resources: ["jobs", "cronjobs"]
-    verbs: ["get", "list", "watch", "create", "delete", "update"]
+    verbs: ["get", "list", "watch", "create", "delete", "update", "patch"]
   - apiGroups: ["extensions"]
     resources: ["ingresses"]
-    verbs: ["get", "list", "watch", "create", "delete", "update"]```
+    verbs: ["get", "list", "watch", "create", "delete", "update", "patch"]```
 
 ### Bind the role to service account
 
