@@ -147,8 +147,27 @@ subjects:
   - kind: ServiceAccount
     name: jenkins
     namespace: bms
-```
 
+### create a secret token for the service account name jenkins 
+```
+apiVersion: v1
+kind: Secret
+metadata:
+  name: jenkins-sa-token
+  namespace: bms
+  annotations:
+    kubernetes.io/service-account.name: jenkins
+type: kubernetes.io/service-account-token
+```
+### after applying the above secret yml file in the bms namespace generate the token using the command
+```
+kubectl describe secret jenkins -n bms  (not as a root user)
+```
+```
+after the token is generated go to jenkins -->manage jenkins-->credentials-->global-->select secret text and paste the token
+and give the id k8s-credentials and save.
+```
 ### Generate token using service account in the namespace
 
 [Create Token](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/#:~:text=To%20create%20a%20non%2Dexpiring,with%20that%20generated%20token%20data.)
+
