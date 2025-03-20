@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: bms-ctr
-        image: neeraj2806/bms:v3
+        image: neeraj2806/bms:v5
         imagePullPolicy: Always
         ports:
         - containerPort: 3000  # Replace with the port your app runs on
