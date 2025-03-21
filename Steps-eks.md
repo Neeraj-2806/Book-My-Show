@@ -133,7 +133,8 @@ rules:
 ### Bind the role to service account
 
 
-```yaml
+```
+yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
@@ -147,7 +148,7 @@ subjects:
   - kind: ServiceAccount
     name: jenkins
     namespace: bms
-
+```
 ### create a secret token for the service account name jenkins 
 ```
 apiVersion: v1
