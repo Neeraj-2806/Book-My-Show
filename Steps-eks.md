@@ -131,10 +131,7 @@ rules:
     verbs: ["get", "list", "watch", "create", "delete", "update", "patch"]```
 
 ### Bind the role to service account
-
-
-```
-yaml
+```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
@@ -147,10 +144,9 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: jenkins
-    namespace: bms
-```
+    namespace: bms```
 ### create a secret token for the service account name jenkins 
-```
+```yaml
 apiVersion: v1
 kind: Secret
 metadata:
@@ -158,8 +154,7 @@ metadata:
   namespace: bms
   annotations:
     kubernetes.io/service-account.name: jenkins
-type: kubernetes.io/service-account-token
-```
+type: kubernetes.io/service-account-token```
 ### after applying the above secret yml file in the bms namespace generate the token using the command
 kubectl describe secret jenkins -n bms  (not as a root user)
 ```
