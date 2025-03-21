@@ -161,7 +161,6 @@ metadata:
 type: kubernetes.io/service-account-token
 ```
 ### after applying the above secret yml file in the bms namespace generate the token using the command
-```
 kubectl describe secret jenkins -n bms  (not as a root user)
 ```
 ```
